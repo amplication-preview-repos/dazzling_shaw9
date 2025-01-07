@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+                 package reTweet;
+service ReTweetService {
+ rpc createReTweet (ReTweetCreateInput) returns (ReTweet) {}
+rpc reTweets (findManyParams) returns (stream ReTweet) {}
+rpc reTweet (ReTweetWhereUniqueInput) returns (ReTweet) {}
+rpc updateReTweet (ReTweetUpdateInput) returns (ReTweet) {}
+rpc deleteReTweet (ReTweetWhereUniqueInput) returns (ReTweet) {} 
+ }
+message ReTweetCreateInput {
+string createdAt = 1;
+string id = 2;
+string originalTweet = 3;
+string retweeter = 4;
+string updatedAt = 5;
+};
+message ReTweet {
+string createdAt = 1;
+string id = 2;
+string originalTweet = 3;
+string retweeter = 4;
+string updatedAt = 5;
+};
+message ReTweetWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string originalTweet = 3;
+string retweeter = 4;
+string updatedAt = 5;
+};
+message ReTweetUpdateInput {
+string createdAt = 1;
+string id = 2;
+string originalTweet = 3;
+string retweeter = 4;
+string updatedAt = 5;
+};
+message findManyParams {
+
+};
