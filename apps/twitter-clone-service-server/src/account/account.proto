@@ -1,0 +1,71 @@
+syntax = "proto3";
+
+                 package account;
+service AccountService {
+ rpc createAccount (AccountCreateInput) returns (Account) {}
+rpc accounts (findManyParams) returns (stream Account) {}
+rpc account (AccountWhereUniqueInput) returns (Account) {}
+rpc updateAccount (AccountUpdateInput) returns (Account) {}
+rpc deleteAccount (AccountWhereUniqueInput) returns (Account) {}
+rpc findManyAccount (AccountWhereUniqueInput) returns (stream Like) {}
+rpc updateAccount (LikeParams) returns (stream Like) {}
+rpc connectAccount (LikeParams) returns (Like) {}
+rpc disconnectAccount (LikeParams) returns (Like) {} 
+ }
+message AccountCreateInput {
+string bio = 1;
+string createdAt = 2;
+string email = 3;
+string id = 4;
+repeated Like likes = 5;
+string password = 6;
+string updatedAt = 7;
+string username = 8;
+};
+message Account {
+string bio = 1;
+string createdAt = 2;
+string email = 3;
+string id = 4;
+repeated Like likes = 5;
+string password = 6;
+string updatedAt = 7;
+string username = 8;
+};
+message AccountWhereUniqueInput {
+string bio = 1;
+string createdAt = 2;
+string email = 3;
+string id = 4;
+repeated Like likes = 5;
+string password = 6;
+string updatedAt = 7;
+string username = 8;
+};
+message AccountUpdateInput {
+string bio = 1;
+string createdAt = 2;
+string email = 3;
+string id = 4;
+repeated Like likes = 5;
+string password = 6;
+string updatedAt = 7;
+string username = 8;
+};
+message findManyParams {
+
+};
+message Like {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LikeWhereUniqueInput {
+string createdAt = 1;
+string id = 2;
+string updatedAt = 3;
+};
+message LikeParams {
+AccountWhereUniqueInput accountWhereUniqueInput = 1;
+LikeWhereUniqueInput likeWhereUniqueInput = 2;
+};
